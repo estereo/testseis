@@ -1,13 +1,29 @@
 ---
 layout: default
-title: Your New Jekyll Site
+title: whatthephone
 ---
-
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+<div class="hero-unit">
+	<div class="container">
+		<h1>You love it, and you know it</h1>
+		<p>Be the envy of your friends.</p>
+		<p><a class="btn btn-primary btn-large" href="/signup.html" title="Sign up">Shut up and take my money!</a></p>
+	</div>
+</div>
+<div class="container">
+	<h3>Our products</h3>
+	
+<div class="row demo-tiles">
+	{% for article in site.posts %}
+  <div class="col-md-3">
+    <div class="{{ article.offer }}">
+      <a href="{{ article.url }}" title="{{ article.title }}"><img src="{{ article.image }}" alt="{{ article.title }}" class="tile-image big-illustration"></a>
+      <h3 class="tile-title"><a href="{{ article.url }}" title="{{ article.title }}">{{ article.title }}</a></h3>
+      <p>{{ article.intro }}</p>
+	  <span class="fui-heart"> {{ article.likes }} Likes</span>
+	  <p class="price">Price: {{ article.price }}</p>
+      <a class="btn btn-primary btn-large btn-block" href="{{ article.url }}">I want it!</a>
+    </div>
+  </div>
+  {% endfor %}
+</div> <!-- /tiles -->
 </div>

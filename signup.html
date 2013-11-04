@@ -1,0 +1,32 @@
+---
+layout: extra
+---
+
+<div class="container">
+<h3>Sign up</h3>
+
+<form>
+
+  <label>Full name:</label><br>
+  <input type="text" id="full_name" class="form-control" name="full_name" placeholder="Ada Lovelace" required><br>
+
+  <label>Email address:</label><br>
+  <input type="email" id="email_addr" class="form-control" name="email_addr" required><br>
+
+  <label>Repeat email address:</label><br>
+  <input type="email" id="email_addr_repeat" class="form-control" name="email_addr_repeat" required 
+   oninput="check(this)"><br>
+   
+   <label>Address:</label>
+   <input type="text" id="address" class="form-control" name="address"  placeholder="Oxford Street, 9" required>
+   
+   <label>Postal Code:</label>
+   <input type="text" id="postal" class="form-control" name="postal" placeholder="10999" required>
+   
+   <label>City:</label>
+   <input type="text" id="address" class="form-control" name="address" placeholder="London" required>
+
+  <input type="submit" class="btn btn-primary" value="Create account" /> 
+</form>
+
+</div>
