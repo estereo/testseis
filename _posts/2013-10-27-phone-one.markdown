@@ -8,6 +8,6 @@ intro: Feel like a Sir. Indeed.
 offer: tile tile-hot
 ---
 
-<img src="{{ page.image }}" alt="{{ page.title }}" height="300" width="300">
+<img src="{{ site.baseurl}}{{ page.image }}" alt="{{ page.title }}" height="300" width="300">
 <p class="price">Price: {{ page.price }}</p>
 <span class="fui-heart"> {{ page.likes }} Likes</span>

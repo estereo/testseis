@@ -26,3 +26,24 @@ border: 2px solid #ECF0F1;}
 .container #left {float: left;}
 
 #disqus_thread {padding-top: 15px;}
+
+form.signup fieldset.left {float: left;}
+form.signup fieldset {overflow: hidden; margin-bottom: 25px;}
+form.signup input.btn {margin: 20px; clear: both; display: block;}
+form.signup label span {color: #1abc9c;}
+
+
+
+input[type='range'] {
+    -webkit-appearance: none !important;
+    background-color:#bdc3c7;
+    height:7px;
+	width: 100%;
+}
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background-color:#16a085;
+	border-radius: 8px;
+    height:16px;
+    width:16px;
+}

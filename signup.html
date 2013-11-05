@@ -3,30 +3,94 @@ layout: extra
 ---
 
 <div class="container">
-<h3>Sign up</h3>
-
-<form>
-
-  <label>Full name:</label><br>
-  <input type="text" id="full_name" class="form-control" name="full_name" placeholder="Ada Lovelace" required><br>
-
-  <label>Email address:</label><br>
-  <input type="email" id="email_addr" class="form-control" name="email_addr" required><br>
-
-  <label>Repeat email address:</label><br>
-  <input type="email" id="email_addr_repeat" class="form-control" name="email_addr_repeat" required 
-   oninput="check(this)"><br>
-   
-   <label>Address:</label>
-   <input type="text" id="address" class="form-control" name="address"  placeholder="Oxford Street, 9" required>
-   
-   <label>Postal Code:</label>
-   <input type="text" id="postal" class="form-control" name="postal" placeholder="10999" required>
-   
-   <label>City:</label>
-   <input type="text" id="address" class="form-control" name="address" placeholder="London" required>
-
-  <input type="submit" class="btn btn-primary" value="Create account" /> 
-</form>
+	<h3>Sign up</h3>
+	
+	<form class="signup">
+		<fieldset id="step1">
+			<legend>Account:</legend>
+			<label>Full name: <span>&#42;</span></label>
+			<input type="text" id="full_name" class="form-control input-sm" name="full_name" placeholder="Ada Lovelace" required>
+			<label>User name: <span>&#42;</span></label>
+			<input type="text" id="user_name" class="form-control input-sm" name="user_name" required>
+			<label>Email address: <span>&#42;</span></label>
+			<input type="email" id="email_addr" class="form-control input-sm" name="email_addr" required>
+			<label>Password <span>&#42;</span></label>
+			<input type="password" id="password" class="form-control input-sm" name="password" required><br>
+			<div class="btn-group">
+				<a href="#" class="previous btn btn-primary btn-sm" disabled="disabled"><span class="glyphicon glyphicon-arrow-left"></span></a>
+				<a href="#" class="next btn btn-primary btn-sm"><span class="glyphicon glyphicon-arrow-right"></span></a>
+			</div>
+		</fieldset>
+			
+		<fieldset id="step2">
+			<legend>Contact data:</legend>	
+			<label for="address">Address:</label>
+			<input type="text" id="address" class="form-control input-sm" name="address"  placeholder="Oxford Street">
+			<label for="number">Number:</label>
+			<input type="text" id="number" class="form-control input-sm" name="number">	
+			<label for="additional">Additional Information:</label>
+			<input type="text" id="additional" class="form-control input-sm" name="additional" placeholder="Building A" required>
+				
+			<label for="zip">Zip/Postal Code: <span>&#42;</span></label>
+			<input type="text" id="zip" class="form-control input-sm" name="zip" placeholder="10999" required>
+			<label for="city">City: <span>&#42;</span></label>
+			<input type="text" id="city" class="form-control input-sm" name="city" placeholder="London" required>
+			<label for="state">State/Region: <span>&#42;</span></label>
+			<input type="text" id="state" class="form-control input-sm" name="state" placeholder="London" required>
+			<label for="country">Country: <span>&#42;</span></label>
+			<input type="text" id="country" class="form-control input-sm" name="country" placeholder="London" required><br>
+			<div class="btn-group">
+				<a href="#" class="previous btn btn-primary btn-sm"><span class="glyphicon glyphicon-arrow-left"></span></a>
+				<a href="#" class="next btn btn-primary btn-sm"><span class="glyphicon glyphicon-arrow-right"></span></a>
+			</div>
+		</fieldset>
+		<fieldset id="step3">
+			<legend>About you:</legend>
+			<label for="age">Age:</label>
+			<input type="range" name="age" min="18" max="60" id="age">
+			<label for="bday">Birthday:</label> <br><input type="date" name="bday" id="bday">
+			<input type="submit" class="btn btn-primary" value="Create account" id="submit" /> <br>
+			<div class="btn-group">
+				<a href="#" class="previous btn btn-primary btn-sm"><span class="glyphicon glyphicon-arrow-left"></span></a>
+				<a href="#" class="next btn btn-primary btn-sm" disabled="disabled"><span class="glyphicon glyphicon-arrow-right"></span></a>
+			</div>
+		</fieldset>
+			
+	</form> 
 
 </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	
+$("#step2, #step3").hide();
+$("#step1 .next").click(function() {
+	$("#step1, #step3").hide();
+	$("#step2").show();
+});
+$("#step2 .next").click(function() {
+	$("#step1, #step2").hide();
+	$("#step3").show();
+});
+$("#step3 .previous").click(function() {
+	$("#step1, #step3").hide();
+	$("#step2").show();
+});
+$("#step2 .previous").click(function() {
+	$("#step2, #step3").hide();
+	$("#step1").show();
+});
+	
+$("input#submit").click(function() {
+	var name_box = $('#full_name').val();
+	if (name_box.length > 0) {
+		alert("Congratulations " + name_box + " , you made it!!");
+	}
+		
+	else {
+		alert("You should write your name first, Sir.");
+	}
+		
+});
+</script>  
